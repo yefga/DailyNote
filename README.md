@@ -1,4 +1,4 @@
-Nostra Assessment for iOS Engineer -  Yefga 
+Build for Interview Purposed -  Yefga 
 
 to open this project, install cocoapods, then run
 
