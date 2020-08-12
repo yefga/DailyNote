@@ -54,8 +54,18 @@ class EditViewController: UIViewController, Storyboarded {
     
     
     private func createAlert() {
-        let alertController = UIAlertController(title: "Woops!", message: "Please input at least a title before save your note", preferredStyle: .alert)
-        alertController.addAction(.init(title: "Ok", style: .default, handler: nil))
+        let alertController = UIAlertController(
+            title: "Woops!",
+            message: "Please input at least a title before save your note", preferredStyle: .alert
+        )
+        
+        alertController.addAction(
+            .init(
+                title: "Ok",
+                style: .default,
+                handler: nil)
+        )
+        
         present(alertController, animated: true, completion: nil)
     }
     
@@ -64,10 +74,18 @@ class EditViewController: UIViewController, Storyboarded {
         if viewModel.validate() {
             createAlert()
         } else {
-            viewModel.action(from: state, completion: {
-                self.navigationController?.dismiss(animated: true, completion: {
-                    self.delegate.notifySaved()
+            viewModel.action(
+                from: state,
+                completion: {
+                    
+                self.navigationController?.dismiss(
+                    animated: true,
+                    completion: {
+                 
+                        self.delegate.notifySaved()
+               
                 })
+            
             })
             
         }
